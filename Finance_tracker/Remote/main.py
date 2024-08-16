@@ -6,14 +6,14 @@ from database import DBrun, Function
 
 FORMAT = "%d-%m-%Y"
 
-def Disp():
+def Disp(start_date, end_date):
     try:
         col = Function.col
         df = col.find({},{"_id":0})
         df = pd.DataFrame(df)
         df["date"] = pd.to_datetime(df["date"], format = FORMAT)
-        start_date = datetime.strptime(get_date("Enter start date: "), FORMAT)
-        end_date = datetime.strptime(get_date("Enter end date: "), FORMAT)
+        start_date = datetime.strptime(start_date, FORMAT)
+        end_date = datetime.strptime(end_date, FORMAT)
 
         mask = (df["date"] >= start_date) & (df["date"] <= end_date)
         filtered_df = df.loc[mask]
@@ -79,7 +79,7 @@ def main():#driver
                         plot(df)
                 elif ch == "2":
                     start_date = input("Enter start date: ")
-                    end_date = get_date("Enter end date or press enter for todays date: ")
+                    end_date = input("Enter end date: ")
                     df = Disp(start_date, end_date)
                     if input("Do you want to see a plot? (y/n) ").lower() == "y":
                         plot(df)

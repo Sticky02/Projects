@@ -1,0 +1,29 @@
+date,amount,category,description
+10-01-2022,5000,Income,Salary
+12-01-2022,2000,Expense,Rent
+15-01-2022,1000,Expense,Groceries
+20-01-2022,3000,Income,Freelance work
+25-01-2022,1500,Expense,Entertainment
+28-01-2022,250,Expense,Transportation
+30-01-2022,4000,Income,Bonus
+01-02-2022,800,Expense,Utilities
+05-02-2022,1200,Expense,Furniture
+08-02-2022,2000,Income,Interest
+12-02-2022,1500,Expense,Vacation
+15-02-2022,3000,Income,Dividend
+18-02-2022,2500,Expense,Electronics
+20-02-2022,400,Expense,Subscription
+22-02-2022,1000,Income,Sale
+25-02-2022,2000,Expense,Home improvement
+28-02-2022,3500,Income,Refund
+01-03-2022,1200,Expense,Insurance
+05-03-2022,2500,Income,Investment
+08-03-2022,1800,Expense,Health
+12-03-2022,4000,Income,Salary
+15-03-2022,2000,Expense,Taxes
+18-03-2022,3000,Income,Bonus
+20-03-2022,1500,Expense,Travel
+22-03-2022,250,Expense,Food
+25-03-2022,4000,Income,Interest
+28-03-2022,2000,Expense,Entertainment
+30-03-2022,3500,Income,Dividend31-07-2024,40000.0,e,Taxes

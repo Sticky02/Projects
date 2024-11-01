@@ -10,19 +10,37 @@ model = genai.GenerativeModel("gemini-1.5-flash")
 
 # urls for room images
 room_image_url = "https://storage.googleapis.com/github-repo/img/gemini/retail-recommendations/rooms/spacejoy-c0JoR_-2x3E-unsplash.jpg"
-
 try:
     room_image = load_image_from_url(room_image_url)
 except Exception as e:
     print(f"Error loading image: {e}")
 
-prompt = "Describe what's visible in this room and the overall atmosphere:"
-prompt2 = "and recommend a type of chair that would fit in it"
-contents = [prompt, room_image, prompt2]
 
+furniture_image_urls = [
+    "https://storage.googleapis.com/github-repo/img/gemini/retail-recommendations/furnitures/cesar-couto-OB2F6CsMva8-unsplash.jpg",
+    "https://storage.googleapis.com/github-repo/img/gemini/retail-recommendations/furnitures/daniil-silantev-1P6AnKDw6S8-unsplash.jpg",
+    "https://storage.googleapis.com/github-repo/img/gemini/retail-recommendations/furnitures/ruslan-bardash-4kTbAMRAHtQ-unsplash.jpg",
+    "https://storage.googleapis.com/github-repo/img/gemini/retail-recommendations/furnitures/scopic-ltd-NLlWwR4d3qU-unsplash.jpg",
+]
 
-responses = model.generate_content(contents)
+furniture_images = [load_image_from_url(url) for url in furniture_image_urls]
 
+contents = [
+    "Consider the following chairs:",
+    "chair 1:",
+    furniture_images[0],
+    "chair 2:",
+    furniture_images[1],
+    "chair 3:",
+    furniture_images[2],
+    "chair 4:",
+    furniture_images[3],
+    "room:",
+    room_image,
+    "You are an interior designer. For each chair, explain whether it would be appropriate for the style of the room:",
+]
+
+responses = model.generate_content(contents, stream=True)
 
 print("-------Prompt--------")
 print_multimodal_prompt(contents)

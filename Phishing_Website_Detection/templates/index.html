@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phishing URL Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Phishing URL Detection</h1>
+        <input type="text" id="urlInput" placeholder="Enter URL">
+        <button onclick="predict()">Check Legitimacy</button>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        function predict() {
+            let url = document.getElementById("urlInput").value;
+            fetch('/predict', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({"url": url})
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("result").innerText = `Prediction: ${data.prediction}`;
+            })
+            .catch(error => console.error('Error:', error));
+        }
+    </script>
+</body>
+</html>

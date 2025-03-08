@@ -2,8 +2,8 @@ from pymongo import MongoClient
 from data_entry import get_amt, get_date, get_category, get_description
 
 class mongo:
-    port = MongoClient("mongodb+srv://Admin:Admin@cluster0.1owdo.mongodb.net/")
-    db = port["Finance_Calculator"]
+    port = MongoClient("Enter your mongoDB server")
+    db = port["Enter_Database_Name"]
 
 class Function:
     from data_entry import get_amt, get_date, get_category, get_description
